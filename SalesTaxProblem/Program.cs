@@ -11,7 +11,7 @@ namespace SalesTaxProblem
             IProductFactory productFactory = new ProductFactory();
             List<Product> cartItems = new List<Product>();
             int count = 0;
-
+            //add products to the list in memory
             while (true)
             {
                 Console.WriteLine("----------------- Shopping Cart -------------");
@@ -60,12 +60,12 @@ namespace SalesTaxProblem
                     break;
                 }
             }
-
+            //show billing details as expected
             Console.WriteLine("\n");
             Console.WriteLine("Your Billing details are below");
             Console.WriteLine("------- Date : " + DateTime.Now.ToString("dd/MM/yyyy") + " -------");
             Console.WriteLine("");
-
+            //go through every element of the product list to print and caculate the sales tax
             foreach (var item in cartItems)
             {
                 var moreThan1Prod = item.Quantity > 1 ? "(" + item.Quantity + " @ " + item.Price + ")" : "";
@@ -73,7 +73,7 @@ namespace SalesTaxProblem
             }
 
             Console.WriteLine("\n");
-
+            //showing total and taxes applied as expected
             Console.WriteLine("Sales Taxes: " + cartItems.Sum(item => item.CalculateTax()));
             Console.WriteLine("Total : " + cartItems.Sum(item => (item.Price * item.Quantity) + item.CalculateTax()));
 

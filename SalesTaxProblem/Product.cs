@@ -2,6 +2,7 @@
 
 namespace SalesTaxProblem
 {
+    //Model of product so we can enter a product and save it in memory
     public enum GoodsType
     {
         Book = 1,
@@ -73,7 +74,7 @@ namespace SalesTaxProblem
             : base(name, isImported, price, quantity)
         {
         }
-
+        //Class to calculate tax override so we can change the behavior if we enter an imported product
         public override decimal CalculateTax()
         {
             decimal importedTax = 0;
